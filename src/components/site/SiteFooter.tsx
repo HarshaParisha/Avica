@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { BRANCH_LIST, CLINIC_HOURS } from "@/lib/clinic-data";
 import { Logo } from "./Logo";
 
@@ -20,11 +21,20 @@ export function SiteFooter() {
         ))}
         <div className="grid grid-cols-2 content-start gap-x-4">
           {[
-            ["/about", "About"], ["/doctors", "Doctors"], ["/treatments", "Treatments"], ["/diagnostics", "Lab Tests"],
-            ["/pharmacy", "Pharmacy"], ["/faq", "FAQ"], ["/contact", "Contact"], ["/emergency", "Emergency"],
-            ["/privacy", "Privacy"], ["/terms", "Terms"], ["/staff", "Staff login"],
+            ["/about", "About"],
+            ["/doctors", "Doctors"],
+            ["/treatments", "Treatments"],
+            ["/diagnostics", "Lab Tests"],
+            ["/pharmacy", "Pharmacy"],
+            ["/token", "Live Token"],
+            ["/locations", "Locations"],
+            ["/faq", "FAQ"],
+            ["/emergency", "Emergency"],
+            ["/book", "Book Visit"],
           ].map(([to, l]) => (
-            <a key={to} href={to} className="flex min-h-11 items-center hover:text-foreground">{l}</a>
+            <Link key={to} to={to} className="flex min-h-11 items-center hover:text-foreground">
+              {l}
+            </Link>
           ))}
         </div>
       </div>
