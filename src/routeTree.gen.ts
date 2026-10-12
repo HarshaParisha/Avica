@@ -10,8 +10,15 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as BookRouteImport } from './routes/book'
+import { Route as DiagnosticsRouteImport } from './routes/diagnostics'
 import { Route as DoctorsRouteImport } from './routes/doctors'
+import { Route as EmergencyRouteImport } from './routes/emergency'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as LocationsRouteImport } from './routes/locations'
+import { Route as PharmacyRouteImport } from './routes/pharmacy'
+import { Route as TokenRouteImport } from './routes/token'
 import { Route as TreatmentsIndexRouteImport } from './routes/treatments.index'
 import { Route as TreatmentsSlugRouteImport } from './routes/treatments.$slug'
 
@@ -20,14 +27,49 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BookRoute = BookRouteImport.update({
   id: '/book',
   path: '/book',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DiagnosticsRoute = DiagnosticsRouteImport.update({
+  id: '/diagnostics',
+  path: '/diagnostics',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DoctorsRoute = DoctorsRouteImport.update({
   id: '/doctors',
   path: '/doctors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmergencyRoute = EmergencyRouteImport.update({
+  id: '/emergency',
+  path: '/emergency',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsRoute = LocationsRouteImport.update({
+  id: '/locations',
+  path: '/locations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PharmacyRoute = PharmacyRouteImport.update({
+  id: '/pharmacy',
+  path: '/pharmacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TokenRoute = TokenRouteImport.update({
+  id: '/token',
+  path: '/token',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TreatmentsIndexRoute = TreatmentsIndexRouteImport.update({
@@ -43,44 +85,103 @@ const TreatmentsSlugRoute = TreatmentsSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/book': typeof BookRoute
+  '/diagnostics': typeof DiagnosticsRoute
   '/doctors': typeof DoctorsRoute
+  '/emergency': typeof EmergencyRoute
+  '/faq': typeof FaqRoute
+  '/locations': typeof LocationsRoute
+  '/pharmacy': typeof PharmacyRoute
+  '/token': typeof TokenRoute
   '/treatments/$slug': typeof TreatmentsSlugRoute
   '/treatments/': typeof TreatmentsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/book': typeof BookRoute
+  '/diagnostics': typeof DiagnosticsRoute
   '/doctors': typeof DoctorsRoute
+  '/emergency': typeof EmergencyRoute
+  '/faq': typeof FaqRoute
+  '/locations': typeof LocationsRoute
+  '/pharmacy': typeof PharmacyRoute
+  '/token': typeof TokenRoute
   '/treatments/$slug': typeof TreatmentsSlugRoute
   '/treatments': typeof TreatmentsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/book': typeof BookRoute
+  '/diagnostics': typeof DiagnosticsRoute
   '/doctors': typeof DoctorsRoute
+  '/emergency': typeof EmergencyRoute
+  '/faq': typeof FaqRoute
+  '/locations': typeof LocationsRoute
+  '/pharmacy': typeof PharmacyRoute
+  '/token': typeof TokenRoute
   '/treatments/$slug': typeof TreatmentsSlugRoute
   '/treatments/': typeof TreatmentsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/book' | '/doctors' | '/treatments/$slug' | '/treatments/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/book'
+    | '/diagnostics'
+    | '/doctors'
+    | '/emergency'
+    | '/faq'
+    | '/locations'
+    | '/pharmacy'
+    | '/token'
+    | '/treatments/$slug'
+    | '/treatments/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/book' | '/doctors' | '/treatments/$slug' | '/treatments'
+  to:
+    | '/'
+    | '/about'
+    | '/book'
+    | '/diagnostics'
+    | '/doctors'
+    | '/emergency'
+    | '/faq'
+    | '/locations'
+    | '/pharmacy'
+    | '/token'
+    | '/treatments/$slug'
+    | '/treatments'
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/book'
+    | '/diagnostics'
     | '/doctors'
+    | '/emergency'
+    | '/faq'
+    | '/locations'
+    | '/pharmacy'
+    | '/token'
     | '/treatments/$slug'
     | '/treatments/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   BookRoute: typeof BookRoute
+  DiagnosticsRoute: typeof DiagnosticsRoute
   DoctorsRoute: typeof DoctorsRoute
+  EmergencyRoute: typeof EmergencyRoute
+  FaqRoute: typeof FaqRoute
+  LocationsRoute: typeof LocationsRoute
+  PharmacyRoute: typeof PharmacyRoute
+  TokenRoute: typeof TokenRoute
   TreatmentsSlugRoute: typeof TreatmentsSlugRoute
   TreatmentsIndexRoute: typeof TreatmentsIndexRoute
 }
@@ -94,6 +195,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/book': {
       id: '/book'
       path: '/book'
@@ -101,11 +209,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BookRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/diagnostics': {
+      id: '/diagnostics'
+      path: '/diagnostics'
+      fullPath: '/diagnostics'
+      preLoaderRoute: typeof DiagnosticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/doctors': {
       id: '/doctors'
       path: '/doctors'
       fullPath: '/doctors'
       preLoaderRoute: typeof DoctorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/emergency': {
+      id: '/emergency'
+      path: '/emergency'
+      fullPath: '/emergency'
+      preLoaderRoute: typeof EmergencyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations': {
+      id: '/locations'
+      path: '/locations'
+      fullPath: '/locations'
+      preLoaderRoute: typeof LocationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pharmacy': {
+      id: '/pharmacy'
+      path: '/pharmacy'
+      fullPath: '/pharmacy'
+      preLoaderRoute: typeof PharmacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/token': {
+      id: '/token'
+      path: '/token'
+      fullPath: '/token'
+      preLoaderRoute: typeof TokenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/treatments/': {
@@ -127,8 +277,15 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   BookRoute: BookRoute,
+  DiagnosticsRoute: DiagnosticsRoute,
   DoctorsRoute: DoctorsRoute,
+  EmergencyRoute: EmergencyRoute,
+  FaqRoute: FaqRoute,
+  LocationsRoute: LocationsRoute,
+  PharmacyRoute: PharmacyRoute,
+  TokenRoute: TokenRoute,
   TreatmentsSlugRoute: TreatmentsSlugRoute,
   TreatmentsIndexRoute: TreatmentsIndexRoute,
 }
